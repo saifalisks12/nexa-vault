@@ -1,0 +1,62 @@
+server:
+  port: ${PORT:8080}
+
+# ===============================
+# Pinata Configuration
+# ===============================
+pinata:
+  api:
+    key: ${PINATA_API_KEY}
+  secret:
+    key: ${PINATA_SECRET_KEY}
+
+# ===============================
+# Solana Configuration
+# ===============================
+solana:
+  rpc:
+    url: ${SOLANA_RPC_URL:https://api.devnet.solana.com}
+  wallet:
+    secret:
+      key: ${SOLANA_WALLET_SECRET_KEY}
+
+# ===============================
+# Encryption / Security
+# ===============================
+encryption:
+  key: ${ENCRYPTION_KEY}
+
+jwt:
+  secret: ${JWT_SECRET}
+
+# ===============================
+# Database Configuration
+# ===============================
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+
+# ===============================
+# Swagger / OpenAPI (Disabled in Prod)
+# ===============================
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
